@@ -35,33 +35,9 @@
   </form>
 
   <hr />
-    <div th:if="${#lists.isEmpty(jobs)}">
-        <p>No results found for your search.</p>
-    </div>
+    <!-- TODO #4 - Loop over the search results to display all job fields. -->
 
-    <table class="job-table" th:if="${not #lists.isEmpty(jobs)}">
-        <thead>
-        <tr>
-            <th>Job Name</th>
-            <th>Employer</th>
-            <th>Location</th>
-            <th>Position Type</th>
-            <th>Skill</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="job : ${jobs}">
-            <td th:text="${job.name}"></td>
-            <td th:text="${job.employer}"></td>
-            <td th:text="${job.location}"></td>
-            <td th:text="${job.positionType}"></td>
-            <td th:text="${job.coreCompetency}"></td>
-        </tr>
-        </tbody>
-    </table>
-
-</div>
-  <!-- TODO #4 - Loop over the search results to display all job fields. -->
+    <div th:replace="~{list-jobs :: jobs-list}"></div>
 
 </div>
 
